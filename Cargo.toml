@@ -1,0 +1,3 @@
+[workspace]
+members = ["lci", "lci-cli"]
+resolver = "2"

@@ -1,0 +1,23 @@
+--- input ---
+fn process(items: &[Item]) -> Vec<String> {
+    let separator = items.first().map(|i| i.sep()).unwrap_or("-");
+    let mut results = vec![];
+    for item in items {
+        if item.is_valid() {
+            results.push(item.name().to_string());
+        }
+    }
+    results.join(separator)
+}
+
+--- output ---
+fn process(items: &[Item]) -> Vec<String> {
+    let mut results = vec![];
+    for item in items {
+        if item.is_valid() {
+            results.push(item.name().to_string());
+        }
+    }
+    let separator = items.first().map(|i| i.sep()).unwrap_or("-");
+    results.join(separator)
+}

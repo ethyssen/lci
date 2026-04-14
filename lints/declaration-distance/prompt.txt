@@ -1,0 +1,19 @@
+A variable declaration has been identified far from its usage. We need to determine if it is safe to move the declaration to right before the usage.
+
+The variable `{{VARIABLE}}` is assigned on line {{ASSIGN_LINE}}:
+    {{ASSIGN_CODE}}
+
+It is used once on line {{USAGE_LINE}}:
+    {{USAGE_CODE}}
+
+Here is the code between the assignment and usage:
+```rust
+{{CODE_BETWEEN}}
+```
+
+Is `{{EXPRESSION}}` still valid at line {{USAGE_LINE}}? Specifically, check that no binding referenced in the expression is moved, shadowed, or mutated between lines {{ASSIGN_LINE}} and {{USAGE_LINE}}.
+
+Show your reasoning, then respond with ONLY this JSON on the last line (no markdown fences):
+{"safe": true}
+or
+{"safe": false, "reason": "..."}

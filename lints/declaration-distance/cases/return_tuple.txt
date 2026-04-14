@@ -1,0 +1,43 @@
+--- input ---
+pub fn select_rules(&self) -> (Vec<FeatureSplit>, usize) {
+    let candidates = self.tail_bend_candidates();
+    let n_candidates = candidates.len();
+    if candidates.is_empty() {
+        return (vec![], 0);
+    }
+
+    let mut ranked: Vec<(usize, f64)> = candidates
+        .iter()
+        .enumerate()
+        .map(|(i, rule)| {
+            let z = self.zscore_candidate(rule);
+            (i, z)
+        })
+        .collect();
+    ranked.sort_by(|a, b| b.1.abs().partial_cmp(&a.1.abs()).unwrap());
+
+    let result = self.drop_redundant(&ranked);
+    (result, n_candidates)
+}
+
+--- output ---
+pub fn select_rules(&self) -> (Vec<FeatureSplit>, usize) {
+    let candidates = self.tail_bend_candidates();
+    if candidates.is_empty() {
+        return (vec![], 0);
+    }
+
+    let mut ranked: Vec<(usize, f64)> = candidates
+        .iter()
+        .enumerate()
+        .map(|(i, rule)| {
+            let z = self.zscore_candidate(rule);
+            (i, z)
+        })
+        .collect();
+    ranked.sort_by(|a, b| b.1.abs().partial_cmp(&a.1.abs()).unwrap());
+
+    let result = self.drop_redundant(&ranked);
+    let n_candidates = candidates.len();
+    (result, n_candidates)
+}

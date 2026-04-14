@@ -1,0 +1,15 @@
+--- input ---
+fn build_report(data: &DataSegment) -> Report {
+    let features = data.feature_names();
+    let matrix = data.correlation_matrix(&features);
+    let html = build_html(&features, &matrix);
+    Report::new(html)
+}
+
+--- output ---
+fn build_report(data: &DataSegment) -> Report {
+    let features = data.feature_names();
+    let matrix = data.correlation_matrix(&features);
+    let html = build_html(&features, &matrix);
+    Report::new(html)
+}

@@ -1,0 +1,19 @@
+--- input ---
+use clap::Parser;
+
+/// Generate position sizing multiplier logic.
+#[derive(Parser)]
+pub(super) struct MultiplierLogic {
+    #[arg(long)]
+    input: PathBuf,
+}
+
+--- output ---
+use clap::Parser;
+
+/// Generate position sizing multiplier logic.
+#[derive(Parser)]
+pub(super) struct MultiplierLogic {
+    #[arg(long)]
+    input: PathBuf,
+}

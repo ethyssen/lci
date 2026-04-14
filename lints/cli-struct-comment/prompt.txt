@@ -1,0 +1,14 @@
+Detect whether there is a clap subcommand struct in this code that does not have a doc comment on the struct itself.
+
+A struct deriving `Parser` or `Subcommand` must have a `///` doc comment directly above `#[derive(Parser)]` or `#[derive(Subcommand)]`.
+
+Respond with ONLY this JSON (no markdown fences, no extra text):
+{"detected": false}
+
+or if detected:
+{"detected": true, "struct_name": "<name>"}
+
+Here is the code:
+```rust
+{{CODE}}
+```
